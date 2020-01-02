@@ -38,7 +38,7 @@ with open(csvpath, newline='') as csvfile:
     f = open('info.txt', 'w')
     f.write(f"Total Months: {months}\n")
     f.write(f"Total: ${netProfitLosses}\n")
-    f.write(f"Average Change: ${round(totalChange/months)}\n")
+    f.write(f"Average Change: ${round(totalChange/(months-1))}\n")
     f.write(f"Greatest Increase in Profits: {monthIncrease} (${increase})\n")
     f.write(f"Greatest Decrease in Profits: {monthDecrease} (${decrease})\n")
     f.close()

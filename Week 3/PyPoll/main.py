@@ -42,9 +42,6 @@ with open(csvpath, newline='') as csvfile:
     f.write(f"Total Votes: {votes}\n")
     f.write("-----------------------------------\n")
     for candidateInfo in candidates:
-        if candidateInfo['votes'] > winnerVotes:
-            winnerVotes = candidateInfo['votes']
-            winner = candidateInfo['name']
         f.write(
             f"{candidateInfo['name']}: {round(candidateInfo['votes']/votes*100,3)}% ({candidateInfo['votes']})\n")
     f.write("-----------------------------------\n")

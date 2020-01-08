@@ -6,7 +6,7 @@ csvpath = os.path.join("Resources", "budget_data.csv")
 # csvpath = "C:\Users\shado\Documents\LearnPython\Day3\Stu_CerealCleaner\Resources\cereal.csv"
 with open(csvpath, newline='') as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',')
-    next(csvreader)
+    csvheader = next(csvreader)
     netProfitLosses = 0
     months = 0
     previousValue = 867884
@@ -25,7 +25,7 @@ with open(csvpath, newline='') as csvfile:
             decrease = int(row[1])-previousValue
             monthDecrease = row[0]
         totalChange = totalChange+int(row[1])-previousValue
-        print(totalChange)
+        # print(totalChange)
         months = months + 1
         previousValue = int(row[1])
 
@@ -38,7 +38,7 @@ with open(csvpath, newline='') as csvfile:
     f = open('info.txt', 'w')
     f.write(f"Total Months: {months}\n")
     f.write(f"Total: ${netProfitLosses}\n")
-    f.write(f"Average Change: ${round(totalChange/(months-1))}\n")
+    f.write(f"Average Change: ${round(totalChange/(months-1)),2}\n")
     f.write(f"Greatest Increase in Profits: {monthIncrease} (${increase})\n")
     f.write(f"Greatest Decrease in Profits: {monthDecrease} (${decrease})\n")
     f.close()

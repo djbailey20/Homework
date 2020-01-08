@@ -61,7 +61,8 @@ with open(csvpath, newline='') as csvfile, open('output.csv', 'w', newline="") a
     next(csvreader)
     filewriter = csv.writer(csvout, delimiter=',',
                             quotechar='|', quoting=csv.QUOTE_MINIMAL)
-    filewriter.writerow(['Emp ID', 'First Name', 'DOB', 'SSN', 'State'])
+    filewriter.writerow(
+        ['Emp ID', 'First Name', 'Last Name', 'DOB', 'SSN', 'State'])
     for row in csvreader:
         name = row[1].split()
         ssn = row[3].split('-')

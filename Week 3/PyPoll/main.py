@@ -6,7 +6,7 @@ csvpath = os.path.join("Resources", "election_data.csv")
 # csvpath = "C:\Users\shado\Documents\LearnPython\Day3\Stu_CerealCleaner\Resources\cereal.csv"
 with open(csvpath, newline='') as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',')
-    next(csvreader)
+    csvheader = next(csvreader)
     votes = 0
     candidates = []
     winner = ""
